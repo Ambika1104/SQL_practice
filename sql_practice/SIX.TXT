@@ -1,0 +1,134 @@
+SQL> SELECT 'SQL' || 'PLUS' FROM DUAL;
+
+'SQL'||                                                                         
+-------                                                                         
+SQLPLUS                                                                         
+
+SQL> SELECT 'SQL' || '17-JUL-24' FROM DUAL;
+
+'SQL'||'17-J                                                                    
+------------                                                                    
+SQL17-JUL-24                                                                    
+
+SQL> SELECT DNAME||LOC FROM DEPT;
+
+DNAME||LOC                                                                      
+---------------------------                                                     
+ACCOUNTINGNEW YORK                                                              
+RESEARCHDALLAS                                                                  
+SALESCHICAGO                                                                    
+OPERATIONSBOSTON                                                                
+
+SQL> SELECT ENAME||' IS WORKING AS A '||JOB||' IN DEPT '||DEPTNO FROMEMP;
+SELECT ENAME||' IS WORKING AS A '||JOB||' IN DEPT '||DEPTNO FROMEMP
+                                                                  *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected 
+
+
+SQL> SELECT ENAME||' IS WORKING AS A '||JOB||' IN DEPT '||DEPTNO FROM EMP;
+
+ENAME||'ISWORKINGASA'||JOB||'INDEPT'||DEPTNO                                    
+--------------------------------------------------------------------------------
+SMITH IS WORKING AS A CLERK IN DEPT 20                                          
+ALLEN IS WORKING AS A SALESMAN IN DEPT 30                                       
+WARD IS WORKING AS A SALESMAN IN DEPT 30                                        
+JONES IS WORKING AS A MANAGER IN DEPT 20                                        
+MARTIN IS WORKING AS A SALESMAN IN DEPT 30                                      
+BLAKE IS WORKING AS A MANAGER IN DEPT 30                                        
+CLARK IS WORKING AS A MANAGER IN DEPT 10                                        
+SCOTT IS WORKING AS A ANALYST IN DEPT 20                                        
+KING IS WORKING AS A PRESIDENT IN DEPT 10                                       
+TURNER IS WORKING AS A SALESMAN IN DEPT 30                                      
+ADAMS IS WORKING AS A CLERK IN DEPT 20                                          
+
+ENAME||'ISWORKINGASA'||JOB||'INDEPT'||DEPTNO                                    
+--------------------------------------------------------------------------------
+JAMES IS WORKING AS A CLERK IN DEPT 30                                          
+FORD IS WORKING AS A ANALYST IN DEPT 20                                         
+MILLER IS WORKING AS A CLERK IN DEPT 10                                         
+
+14 rows selected.
+
+SQL> SET PAGES 200 LINES 200;
+SQL> SELECT ENAME||' IS WORKING AS A '||JOB||' IN DEPT '||DEPTNO FROM EMP;
+
+ENAME||'ISWORKINGASA'||JOB||'INDEPT'||DEPTNO                                                                                                                                                            
+-------------------------------------------------------------------------------------                                                                                                                   
+SMITH IS WORKING AS A CLERK IN DEPT 20                                                                                                                                                                  
+ALLEN IS WORKING AS A SALESMAN IN DEPT 30                                                                                                                                                               
+WARD IS WORKING AS A SALESMAN IN DEPT 30                                                                                                                                                                
+JONES IS WORKING AS A MANAGER IN DEPT 20                                                                                                                                                                
+MARTIN IS WORKING AS A SALESMAN IN DEPT 30                                                                                                                                                              
+BLAKE IS WORKING AS A MANAGER IN DEPT 30                                                                                                                                                                
+CLARK IS WORKING AS A MANAGER IN DEPT 10                                                                                                                                                                
+SCOTT IS WORKING AS A ANALYST IN DEPT 20                                                                                                                                                                
+KING IS WORKING AS A PRESIDENT IN DEPT 10                                                                                                                                                               
+TURNER IS WORKING AS A SALESMAN IN DEPT 30                                                                                                                                                              
+ADAMS IS WORKING AS A CLERK IN DEPT 20                                                                                                                                                                  
+JAMES IS WORKING AS A CLERK IN DEPT 30                                                                                                                                                                  
+FORD IS WORKING AS A ANALYST IN DEPT 20                                                                                                                                                                 
+MILLER IS WORKING AS A CLERK IN DEPT 10                                                                                                                                                                 
+
+14 rows selected.
+
+SQL> SELECT 'THE EMPLOYEE WHO IS NAMED AS '||ENAME||' IS WORKING AS A '||JOB||' AND EARNING SALARY W;
+ERROR:
+ORA-01756: quoted string not properly terminated 
+
+
+SQL> SELECT 'THE EMPLOYEE WHO IS NAMED AS '||ENAME||' IS WORKING AS A '||JOB||' AND EARNING SALARY EXACTLY '||SAL FROM EMP;
+
+'THEEMPLOYEEWHOISNAMEDAS'||ENAME||'ISWORKINGASA'||JOB||'ANDEARNINGSALARYEXACTLY'||SAL                                                                                                                   
+-------------------------------------------------------------------------------------------------------------------------------------                                                                   
+THE EMPLOYEE WHO IS NAMED AS SMITH IS WORKING AS A CLERK AND EARNING SALARY EXACTLY 800                                                                                                                 
+THE EMPLOYEE WHO IS NAMED AS ALLEN IS WORKING AS A SALESMAN AND EARNING SALARY EXACTLY 1600                                                                                                             
+THE EMPLOYEE WHO IS NAMED AS WARD IS WORKING AS A SALESMAN AND EARNING SALARY EXACTLY 1250                                                                                                              
+THE EMPLOYEE WHO IS NAMED AS JONES IS WORKING AS A MANAGER AND EARNING SALARY EXACTLY 2975                                                                                                              
+THE EMPLOYEE WHO IS NAMED AS MARTIN IS WORKING AS A SALESMAN AND EARNING SALARY EXACTLY 1250                                                                                                            
+THE EMPLOYEE WHO IS NAMED AS BLAKE IS WORKING AS A MANAGER AND EARNING SALARY EXACTLY 2850                                                                                                              
+THE EMPLOYEE WHO IS NAMED AS CLARK IS WORKING AS A MANAGER AND EARNING SALARY EXACTLY 2450                                                                                                              
+THE EMPLOYEE WHO IS NAMED AS SCOTT IS WORKING AS A ANALYST AND EARNING SALARY EXACTLY 3000                                                                                                              
+THE EMPLOYEE WHO IS NAMED AS KING IS WORKING AS A PRESIDENT AND EARNING SALARY EXACTLY 5000                                                                                                             
+THE EMPLOYEE WHO IS NAMED AS TURNER IS WORKING AS A SALESMAN AND EARNING SALARY EXACTLY 1500                                                                                                            
+THE EMPLOYEE WHO IS NAMED AS ADAMS IS WORKING AS A CLERK AND EARNING SALARY EXACTLY 1100                                                                                                                
+THE EMPLOYEE WHO IS NAMED AS JAMES IS WORKING AS A CLERK AND EARNING SALARY EXACTLY 950                                                                                                                 
+THE EMPLOYEE WHO IS NAMED AS FORD IS WORKING AS A ANALYST AND EARNING SALARY EXACTLY 3000                                                                                                               
+THE EMPLOYEE WHO IS NAMED AS MILLER IS WORKING AS A CLERK AND EARNING SALARY EXACTLY 1300                                                                                                               
+
+14 rows selected.
+
+SQL> SELECT ENAME ||' IS AN EMPLOYEE WHO IS HAVING ID OF '||EMPNO||' WORKING IN DEPARTMENT '||DEPRNOCSELECT 'THE EMPLOYEE WHO IS NAMED AS '||ENAME||' IS WORKING AS A '||JOB||' AND EARNING SALARY;
+ERROR:
+ORA-01756: quoted string not properly terminated 
+
+
+SQL> SELECT ENAME ||' IS AN EMPLOYEE WHO IS HAVING ID OF '||EMPNO||' WORKING IN DEPARTMENT '||DEPTNO||' AND JOINED ON '||HIREDATE FROM EMP;
+
+ENAME||'ISANEMPLOYEEWHOISHAVINGIDOF'||EMPNO||'WORKINGINDEPARTMENT'||DEPTNO||'ANDJOINEDON'||HIREDATE                                                                                                     
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------                           
+SMITH IS AN EMPLOYEE WHO IS HAVING ID OF 7369 WORKING IN DEPARTMENT 20 AND JOINED ON 17-DEC-80                                                                                                          
+ALLEN IS AN EMPLOYEE WHO IS HAVING ID OF 7499 WORKING IN DEPARTMENT 30 AND JOINED ON 20-FEB-81                                                                                                          
+WARD IS AN EMPLOYEE WHO IS HAVING ID OF 7521 WORKING IN DEPARTMENT 30 AND JOINED ON 22-FEB-81                                                                                                           
+JONES IS AN EMPLOYEE WHO IS HAVING ID OF 7566 WORKING IN DEPARTMENT 20 AND JOINED ON 02-APR-81                                                                                                          
+MARTIN IS AN EMPLOYEE WHO IS HAVING ID OF 7654 WORKING IN DEPARTMENT 30 AND JOINED ON 28-SEP-81                                                                                                         
+BLAKE IS AN EMPLOYEE WHO IS HAVING ID OF 7698 WORKING IN DEPARTMENT 30 AND JOINED ON 01-MAY-81                                                                                                          
+CLARK IS AN EMPLOYEE WHO IS HAVING ID OF 7782 WORKING IN DEPARTMENT 10 AND JOINED ON 09-JUN-81                                                                                                          
+SCOTT IS AN EMPLOYEE WHO IS HAVING ID OF 7788 WORKING IN DEPARTMENT 20 AND JOINED ON 19-APR-87                                                                                                          
+KING IS AN EMPLOYEE WHO IS HAVING ID OF 7839 WORKING IN DEPARTMENT 10 AND JOINED ON 17-NOV-81                                                                                                           
+TURNER IS AN EMPLOYEE WHO IS HAVING ID OF 7844 WORKING IN DEPARTMENT 30 AND JOINED ON 08-SEP-81                                                                                                         
+ADAMS IS AN EMPLOYEE WHO IS HAVING ID OF 7876 WORKING IN DEPARTMENT 20 AND JOINED ON 23-MAY-87                                                                                                          
+JAMES IS AN EMPLOYEE WHO IS HAVING ID OF 7900 WORKING IN DEPARTMENT 30 AND JOINED ON 03-DEC-81                                                                                                          
+FORD IS AN EMPLOYEE WHO IS HAVING ID OF 7902 WORKING IN DEPARTMENT 20 AND JOINED ON 03-DEC-81                                                                                                           
+MILLER IS AN EMPLOYEE WHO IS HAVING ID OF 7934 WORKING IN DEPARTMENT 10 AND JOINED ON 23-JAN-82                                                                                                         
+
+14 rows selected.
+
+SQL> SELECT ENAME ||' IS AN EMPLOYEE WHO IS HAVING ID OF '||EMPNO||' WORKING IN DEPARTMENT '||DEPTNO||' AND JOINED ON '||HIREDATE FROM EMP WHERE JOB='ANALYST';
+
+ENAME||'ISANEMPLOYEEWHOISHAVINGIDOF'||EMPNO||'WORKINGINDEPARTMENT'||DEPTNO||'ANDJOINEDON'||HIREDATE                                                                                                     
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------                           
+SCOTT IS AN EMPLOYEE WHO IS HAVING ID OF 7788 WORKING IN DEPARTMENT 20 AND JOINED ON 19-APR-87                                                                                                          
+FORD IS AN EMPLOYEE WHO IS HAVING ID OF 7902 WORKING IN DEPARTMENT 20 AND JOINED ON 03-DEC-81                                                                                                           
+
+SQL> SPOOL OFF

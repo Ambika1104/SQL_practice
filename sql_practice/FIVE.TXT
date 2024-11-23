@@ -1,0 +1,229 @@
+SQL> SELECT * FROM EMP WHERE SAL LIKE '%0' OR SAL LIKE '%2' OR SAL LIKE '%4' OR SAL LIKE '%6' OR SAL LIKE '%8';
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM      
+---------- ---------- --------- ---------- --------- ---------- ----------      
+    DEPTNO                                                                      
+----------                                                                      
+      7369 SMITH      CLERK           7902 17-DEC-80        800                 
+        20                                                                      
+                                                                                
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300      
+        30                                                                      
+                                                                                
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500      
+        30                                                                      
+                                                                                
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM      
+---------- ---------- --------- ---------- --------- ---------- ----------      
+    DEPTNO                                                                      
+----------                                                                      
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400      
+        30                                                                      
+                                                                                
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                 
+        30                                                                      
+                                                                                
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                 
+        10                                                                      
+                                                                                
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM      
+---------- ---------- --------- ---------- --------- ---------- ----------      
+    DEPTNO                                                                      
+----------                                                                      
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                 
+        20                                                                      
+                                                                                
+      7839 KING       PRESIDENT            17-NOV-81       5000                 
+        10                                                                      
+                                                                                
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0      
+        30                                                                      
+                                                                                
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM      
+---------- ---------- --------- ---------- --------- ---------- ----------      
+    DEPTNO                                                                      
+----------                                                                      
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                 
+        20                                                                      
+                                                                                
+      7900 JAMES      CLERK           7698 03-DEC-81        950                 
+        30                                                                      
+                                                                                
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                 
+        20                                                                      
+                                                                                
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM      
+---------- ---------- --------- ---------- --------- ---------- ----------      
+    DEPTNO                                                                      
+----------                                                                      
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                 
+        10                                                                      
+                                                                                
+
+13 rows selected.
+
+SQL> SET PAGES 200 LINES 200;
+SQL>  SELECT * FROM EMP WHERE SAL LIKE '%0' OR SAL LIKE '%2' OR SAL LIKE '%4' OR SAL LIKE '%6' OR SAL LIKE '%8';
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                                                                                                   
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                                                                                                   
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20                                                                                                                   
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30                                                                                                                   
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30                                                                                                                   
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30                                                                                                                   
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30                                                                                                                   
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10                                                                                                                   
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20                                                                                                                   
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10                                                                                                                   
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30                                                                                                                   
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20                                                                                                                   
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30                                                                                                                   
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20                                                                                                                   
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10                                                                                                                   
+
+13 rows selected.
+
+SQL> SELECT 8 FROM EMP WHERE ENAME LIKE 'A%' OR ENAME LIKE 'E%' R ENAME LIKE 'I%' OR ENAME LIKE 'U%'
+  2  ;
+SELECT 8 FROM EMP WHERE ENAME LIKE 'A%' OR ENAME LIKE 'E%' R ENAME LIKE 'I%' OR ENAME LIKE 'U%'
+                                                           *
+ERROR at line 1:
+ORA-00933: SQL command not properly ended 
+
+
+SQL> SELECT *  FROM EMP WHERE ENAME LIKE 'A%' OR ENAME LIKE 'E%'OR  FROM EMP WHERE ENAME LIKE 'A%' O;
+SELECT *  FROM EMP WHERE ENAME LIKE 'A%' OR ENAME LIKE 'E%'OR  FROM EMP WHERE ENAME LIKE 'A%' O
+                                                               *
+ERROR at line 1:
+ORA-00936: missing expression 
+
+
+SQL> SELECT *  FROM EMP WHERE ENAME LIKE 'A%' OR ENAME LIKE 'E%' OR ENAME LIKE 'I%' OR ENAME LIKE 'O%' OR ENAME LIKE 'U%';
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                                                                                                   
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                                                                                                   
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30                                                                                                                   
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20                                                                                                                   
+
+SQL> SELECT SAL+COMM FROM EMP;
+
+  SAL+COMM                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+                                                                                                                                                                                                        
+      1900                                                                                                                                                                                              
+      1750                                                                                                                                                                                              
+                                                                                                                                                                                                        
+      2650                                                                                                                                                                                              
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+      1500                                                                                                                                                                                              
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+
+14 rows selected.
+
+SQL> SELECT * FROM EMP WHERE JOB='SALESMAN' AND DEPTNO=30 AND ENAME='%E_' SAL*12='____';
+SELECT * FROM EMP WHERE JOB='SALESMAN' AND DEPTNO=30 AND ENAME='%E_' SAL*12='____'
+                                                                     *
+ERROR at line 1:
+ORA-00933: SQL command not properly ended 
+
+
+SQL> SELECT * FROM EMP WHERE JOB='SALESMAN' AND DEPTNO=30 AND ENAME='%E_' AND SAL*12='____';
+
+no rows selected
+
+SQL> SELCT * FROM EMP WHERE HIREDATE BETWEEN '01-JAN-81' AND '31-DEC-86';
+SP2-0734: unknown command beginning "SELCT * FR..." - rest of line ignored.
+SQL> SELECT * FROM EMP WHERE HIREDATE BETWEEN '01-JAN-81' AND '31-DEC-86';
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                                                                                                   
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                                                                                                   
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30                                                                                                                   
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30                                                                                                                   
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20                                                                                                                   
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30                                                                                                                   
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30                                                                                                                   
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10                                                                                                                   
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10                                                                                                                   
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30                                                                                                                   
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30                                                                                                                   
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20                                                                                                                   
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10                                                                                                                   
+
+11 rows selected.
+
+SQL> SELECT SAL*12 FROM EMP WHERE ENAME!='S%' AND (SAL BETWEEN 1500 AND 3000);
+
+    SAL*12                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+     19200                                                                                                                                                                                              
+     35700                                                                                                                                                                                              
+     34200                                                                                                                                                                                              
+     29400                                                                                                                                                                                              
+     36000                                                                                                                                                                                              
+     18000                                                                                                                                                                                              
+     36000                                                                                                                                                                                              
+
+7 rows selected.
+
+SQL> SELECT SAL*12 FROM EMP WHERE ENAME!='S%' AND SAL>=1500 AND SAL<=3000;
+
+    SAL*12                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+     19200                                                                                                                                                                                              
+     35700                                                                                                                                                                                              
+     34200                                                                                                                                                                                              
+     29400                                                                                                                                                                                              
+     36000                                                                                                                                                                                              
+     18000                                                                                                                                                                                              
+     36000                                                                                                                                                                                              
+
+7 rows selected.
+
+SQL> SELECT * FROM EMP WHERE HIREDATE LIKE '&FEB%' AND ENAME LIKE '%LL%';
+Enter value for feb: SELECT * FROM EMP WHERE HIREDATE LIKE '%FEB%' AND ENAME LIKE '%LL%';
+old   1: SELECT * FROM EMP WHERE HIREDATE LIKE '&FEB%' AND ENAME LIKE '%LL%'
+new   1: SELECT * FROM EMP WHERE HIREDATE LIKE 'SELECT * FROM EMP WHERE HIREDATE LIKE '%FEB%' AND ENAME LIKE '%LL%';%' AND ENAME LIKE '%LL%'
+SELECT * FROM EMP WHERE HIREDATE LIKE 'SELECT * FROM EMP WHERE HIREDATE LIKE '%FEB%' AND ENAME LIKE '%LL%';%' AND ENAME LIKE '%LL%'
+                                                                              *
+ERROR at line 1:
+ORA-00911: invalid character 
+
+
+SQL> SELECT * FROM EMP WHERE HIREDATE LIKE '%FEB%' AND ENAME LIKE '%LL%';
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                                                                                                   
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                                                                                                   
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30                                                                                                                   
+
+SQL> SELECT SAL*12/12 FROM EMP;
+
+ SAL*12/12                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+       800                                                                                                                                                                                              
+      1600                                                                                                                                                                                              
+      1250                                                                                                                                                                                              
+      2975                                                                                                                                                                                              
+      1250                                                                                                                                                                                              
+      2850                                                                                                                                                                                              
+      2450                                                                                                                                                                                              
+      3000                                                                                                                                                                                              
+      5000                                                                                                                                                                                              
+      1500                                                                                                                                                                                              
+      1100                                                                                                                                                                                              
+       950                                                                                                                                                                                              
+      3000                                                                                                                                                                                              
+      1300                                                                                                                                                                                              
+
+14 rows selected.
+
+SQL> SPOOL OFF

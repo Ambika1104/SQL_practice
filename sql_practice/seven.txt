@@ -1,0 +1,110 @@
+SQL> CREATE TABLE AUTHOR(
+  2  AID NUMBER(5) PRIMARY KEY,
+  3  ANAME VARCHAR(20) UNIQUE,
+  4  AGE NUMBER(2) NOT NULL,
+  5  NOOFBOOKS NUMBER(2));
+
+Table created.
+
+SQL> CREATE TABLE BOOK(
+  2  BID NUMBER(5) PRIMARY KEY,
+  3  BNAME VARCHAR
+  4  ;
+
+*
+ERROR at line 4:
+ORA-00906: missing left parenthesis 
+
+
+SQL> CREATE TABLE BOOK(
+  2  BID NUMBER(5) PRIMARY KEY,
+  3  BNAME VARCHAR(20) NOT NULL,
+  4  PRICE NUMBER(5) CHECK(PRICE<300),
+  5  PUB_DATE DATE,
+  6  NOOFPAGE NUMBER(2) DEFAULT(30),
+  7  AID NUMBER(5) REFERENCES AUTHOR(AID));
+
+Table created.
+
+SQL> ALTER TABLE AUTHOR ADD GENDER VARCHAR(1);
+
+Table altered.
+
+SQL> ALTER TABLE AUTHOR RENAME COLUMN NOOFBOOKS TO N0_OF_BOOKS;
+
+Table altered.
+
+SQL> DESC COURSE;
+ERROR:
+ORA-04043: object COURSE does not exist 
+
+
+SQL> SELECT* FROM TAB;
+
+TNAME                          TABTYPE  CLUSTERID                               
+------------------------------ ------- ----------                               
+DEPT                           TABLE                                            
+EMP                            TABLE                                            
+BONUS                          TABLE                                            
+SALGRADE                       TABLE                                            
+AUTHOR                         TABLE                                            
+BOOK                           TABLE                                            
+
+6 rows selected.
+
+SQL> SELECT* FROM AUTHOR;
+
+no rows selected
+
+SQL> DESCRIBE AUTHOR;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ AID                                       NOT NULL NUMBER(5)
+ ANAME                                              VARCHAR2(20)
+ AGE                                       NOT NULL NUMBER(2)
+ N0_OF_BOOKS                                        NUMBER(2)
+ GENDER                                             VARCHAR2(1)
+
+SQL> DESCRIBE BOOK;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ BID                                       NOT NULL NUMBER(5)
+ BNAME                                     NOT NULL VARCHAR2(20)
+ PRICE                                              NUMBER(5)
+ PUB_DATE                                           DATE
+ NOOFPAGE                                           NUMBER(2)
+ AID                                                NUMBER(5)
+
+SQL> ALTER TABLE AUTHOR drop COLUMN GENDER;
+
+Table altered.
+
+SQL> DESCRIBE AUTHOR;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ AID                                       NOT NULL NUMBER(5)
+ ANAME                                              VARCHAR2(20)
+ AGE                                       NOT NULL NUMBER(2)
+ N0_OF_BOOKS                                        NUMBER(2)
+
+SQL> ALTER TABLE AUTHOR MODIFY AGE VARCHAR(15);
+
+Table altered.
+
+SQL> DESCRIBE AUTHOR;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ AID                                       NOT NULL NUMBER(5)
+ ANAME                                              VARCHAR2(20)
+ AGE                                       NOT NULL VARCHAR2(15)
+ N0_OF_BOOKS                                        NUMBER(2)
+
+SQL> DESC AUTHOR;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ AID                                       NOT NULL NUMBER(5)
+ ANAME                                              VARCHAR2(20)
+ AGE                                       NOT NULL VARCHAR2(15)
+ N0_OF_BOOKS                                        NUMBER(2)
+
+SQL> SPOOL OFF

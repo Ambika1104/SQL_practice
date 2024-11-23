@@ -1,0 +1,428 @@
+SQL> select lower(substr(ename,1,3)) from emp;
+
+LOW                                                                             
+---                                                                             
+smi                                                                             
+all                                                                             
+war                                                                             
+jon                                                                             
+mar                                                                             
+bla                                                                             
+cla                                                                             
+sco                                                                             
+kin                                                                             
+tur                                                                             
+ada                                                                             
+
+LOW                                                                             
+---                                                                             
+jam                                                                             
+for                                                                             
+mil                                                                             
+
+14 rows selected.
+
+SQL> set lines 200 pages 200
+SQL> select lower(substr(ename,1,3)) from emp;
+
+LOW                                                                                                                                                                                                     
+---                                                                                                                                                                                                     
+smi                                                                                                                                                                                                     
+all                                                                                                                                                                                                     
+war                                                                                                                                                                                                     
+jon                                                                                                                                                                                                     
+mar                                                                                                                                                                                                     
+bla                                                                                                                                                                                                     
+cla                                                                                                                                                                                                     
+sco                                                                                                                                                                                                     
+kin                                                                                                                                                                                                     
+tur                                                                                                                                                                                                     
+ada                                                                                                                                                                                                     
+jam                                                                                                                                                                                                     
+for                                                                                                                                                                                                     
+mil                                                                                                                                                                                                     
+
+14 rows selected.
+
+SQL> select upper(substr(job,-3)) from emp;
+
+UPP                                                                                                                                                                                                     
+---                                                                                                                                                                                                     
+ERK                                                                                                                                                                                                     
+MAN                                                                                                                                                                                                     
+MAN                                                                                                                                                                                                     
+GER                                                                                                                                                                                                     
+MAN                                                                                                                                                                                                     
+GER                                                                                                                                                                                                     
+GER                                                                                                                                                                                                     
+YST                                                                                                                                                                                                     
+ENT                                                                                                                                                                                                     
+MAN                                                                                                                                                                                                     
+ERK                                                                                                                                                                                                     
+ERK                                                                                                                                                                                                     
+YST                                                                                                                                                                                                     
+ERK                                                                                                                                                                                                     
+
+14 rows selected.
+
+SQL> select replace('developers','ers','ment'
+  2  ;
+
+*
+ERROR at line 2:
+ORA-00907: missing right parenthesis 
+
+
+SQL>  select replace('developers','ers','ment') from dual;
+
+REPLACE('DE                                                                                                                                                                                             
+-----------                                                                                                                                                                                             
+development                                                                                                                                                                                             
+
+SQL> create table palidrome( original varchar(20) not null);
+
+Table created.
+
+SQL> insert into palidrome values('nitin');
+
+1 row created.
+
+SQL> insert into palidrome values('mom');
+
+1 row created.
+
+SQL> insert into palidrome values('wow');
+
+1 row created.
+
+SQL> insert into palidrome values('pop');
+
+1 row created.
+
+SQL> insert into palidrome values('kook');
+
+1 row created.
+
+SQL> select reverse(original) from palidrome;
+
+REVERSE(ORIGINAL)                                                                                                                                                                                       
+--------------------                                                                                                                                                                                    
+nitin                                                                                                                                                                                                   
+mom                                                                                                                                                                                                     
+wow                                                                                                                                                                                                     
+pop                                                                                                                                                                                                     
+kook                                                                                                                                                                                                    
+
+SQL> commit;
+
+Commit complete.
+
+SQL> select reverse('nitin') from dual;
+
+REVER                                                                                                                                                                                                   
+-----                                                                                                                                                                                                   
+nitin                                                                                                                                                                                                   
+
+SQL> select * from emp where substr(job,1,3)='man';
+
+no rows selected
+
+SQL> select * from emp;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                                                                                                   
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                                                                                                   
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20                                                                                                                   
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30                                                                                                                   
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30                                                                                                                   
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20                                                                                                                   
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30                                                                                                                   
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30                                                                                                                   
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10                                                                                                                   
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20                                                                                                                   
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10                                                                                                                   
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30                                                                                                                   
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20                                                                                                                   
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30                                                                                                                   
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20                                                                                                                   
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10                                                                                                                   
+
+14 rows selected.
+
+SQL> select * from emp where substr(job,1,3)='MAN';
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                                                                                                   
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                                                                                                   
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20                                                                                                                   
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30                                                                                                                   
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10                                                                                                                   
+
+SQL>  select * from emp where INSTR(ENAME,'A',1,1)!=0;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                                                                                                   
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                                                                                                   
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30                                                                                                                   
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30                                                                                                                   
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30                                                                                                                   
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30                                                                                                                   
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10                                                                                                                   
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20                                                                                                                   
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30                                                                                                                   
+
+7 rows selected.
+
+SQL> select * from emp where SUBSTR(ENAME,1,1) IN ('A','E','I','O','U');
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                                                                                                   
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                                                                                                   
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30                                                                                                                   
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20                                                                                                                   
+
+SQL> SELECT CONCAT (ENAME,SAL) AS EMPLOYEE_DETAILS FROM EMP;
+
+EMPLOYEE_DETAILS                                                                                                                                                                                        
+--------------------------------------------------                                                                                                                                                      
+SMITH800                                                                                                                                                                                                
+ALLEN1600                                                                                                                                                                                               
+WARD1250                                                                                                                                                                                                
+JONES2975                                                                                                                                                                                               
+MARTIN1250                                                                                                                                                                                              
+BLAKE2850                                                                                                                                                                                               
+CLARK2450                                                                                                                                                                                               
+SCOTT3000                                                                                                                                                                                               
+KING5000                                                                                                                                                                                                
+TURNER1500                                                                                                                                                                                              
+ADAMS1100                                                                                                                                                                                               
+JAMES950                                                                                                                                                                                                
+FORD3000                                                                                                                                                                                                
+MILLER1300                                                                                                                                                                                              
+
+14 rows selected.
+
+SQL> SELECT COUNT(SUBSTR('JSPIDERS',1)='S')) FRPM DUAL;
+SELECT COUNT(SUBSTR('JSPIDERS',1)='S')) FRPM DUAL
+                                 *
+ERROR at line 1:
+ORA-00907: missing right parenthesis 
+
+
+SQL> SELECT COUNT(SUBSTR('JSPIDERS',1)='S') FROM DUAL;
+SELECT COUNT(SUBSTR('JSPIDERS',1)='S') FROM DUAL
+                                 *
+ERROR at line 1:
+ORA-00907: missing right parenthesis 
+
+
+SQL> 
+SQL> SELECT SUBSTR('JSPIDERS',1)='S' FRROM DUAL;
+SELECT SUBSTR('JSPIDERS',1)='S' FRROM DUAL
+                           *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected 
+
+
+SQL>  SELECT SUBSTR('JSPIDERS',1)='S' FROM DUAL;
+ SELECT SUBSTR('JSPIDERS',1)='S' FROM DUAL
+                            *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected 
+
+
+SQL> SELECT * FROM DUAL WHERE COUNT(SUBSTR('JSPIDERS',1)='S')!=0;
+SELECT * FROM DUAL WHERE COUNT(SUBSTR('JSPIDERS',1)='S')!=0
+                         *
+ERROR at line 1:
+ORA-00934: group function is not allowed here 
+
+
+SQL>  select * from emp where (SUBSTR(JOB,1,1) AND SUBSTR(JOB,-1)) IN ('A','E','I','O','U');
+ select * from emp where (SUBSTR(JOB,1,1) AND SUBSTR(JOB,-1)) IN ('A','E','I','O','U')
+                                          *
+ERROR at line 1:
+ORA-00920: invalid relational operator 
+
+
+SQL>  select * from emp where UPPER(SUBSTR(JOB,1,1,)) IN ('A','E','I','O','U') AND UPPER(SUBSTR(JOB,-1,1))  IN ('A','E','I','O','U') AND INSTR(UPPER(ENAME,'A',1,1))!=0;
+ select * from emp where UPPER(SUBSTR(JOB,1,1,)) IN ('A','E','I','O','U') AND UPPER(SUBSTR(JOB,-1,1))  IN ('A','E','I','O','U') AND INSTR(UPPER(ENAME,'A',1,1))!=0
+                                              *
+ERROR at line 1:
+ORA-00936: missing expression 
+
+
+SQL> select * from emp where UPPER(SUBSTR(JOB,1,1))IN ('A','E','I','O','U') AND UPPER(SUBSTR(JOB,-1,1))  IN ('A','E','I','O','U') AND INSTR(UPPER(ENAME,'A',1,1))!=0;
+select * from emp where UPPER(SUBSTR(JOB,1,1))IN ('A','E','I','O','U') AND UPPER(SUBSTR(JOB,-1,1))  IN ('A','E','I','O','U') AND INSTR(UPPER(ENAME,'A',1,1))!=0
+                                                                                                                                       *
+ERROR at line 1:
+ORA-00909: invalid number of arguments 
+
+
+SQL>  select * from emp where SUBSTR(JOB,1,1))IN ('A','E','I','O','U') AND SUBSTR(JOB,-1,1))  IN ('A','E','I','O','U') AND INSTR(ENAME,'A'1,1)!=0;
+ select * from emp where SUBSTR(JOB,1,1))IN ('A','E','I','O','U') AND SUBSTR(JOB,-1,1))  IN ('A','E','I','O','U') AND INSTR(ENAME,'A'1,1)!=0
+                                        *
+ERROR at line 1:
+ORA-00920: invalid relational operator 
+
+
+SQL> select * from emp where SUBSTR(JOB,1,1)) IN ('A','E','I','O','U') AND SUBSTR(JOB,-1,1))  IN ('A','E','I','O','U') AND INSTR(ENAME,'A'1,1)!=0;
+select * from emp where SUBSTR(JOB,1,1)) IN ('A','E','I','O','U') AND SUBSTR(JOB,-1,1))  IN ('A','E','I','O','U') AND INSTR(ENAME,'A'1,1)!=0
+                                       *
+ERROR at line 1:
+ORA-00920: invalid relational operator 
+
+
+SQL> select * from emp where SUBSTR(JOB,1,1)IN ('A','E','I','O','U') AND SUBSTR(JOB,-1,1))  IN ('A','E','I','O','U') AND INSTR(ENAME,'A'1,1)!=0;
+select * from emp where SUBSTR(JOB,1,1)IN ('A','E','I','O','U') AND SUBSTR(JOB,-1,1))  IN ('A','E','I','O','U') AND INSTR(ENAME,'A'1,1)!=0
+                                                                                    *
+ERROR at line 1:
+ORA-00920: invalid relational operator 
+
+
+SQL> select * from emp where SUBSTR(JOB,1,1) IN ('A','E','I','O','U') AND SUBSTR(JOB,-1,1) IN ('A','E','I','O','U') AND INSTR(ENAME,'A'1,1)!=0;
+select * from emp where SUBSTR(JOB,1,1) IN ('A','E','I','O','U') AND SUBSTR(JOB,-1,1) IN ('A','E','I','O','U') AND INSTR(ENAME,'A'1,1)!=0
+                                                                                                                                  *
+ERROR at line 1:
+ORA-00907: missing right parenthesis 
+
+
+SQL> select * from emp where SUBSTR(JOB,1,1) IN ('A','E','I','O','U') AND SUBSTR(JOB,-1) IN ('A','E','I','O','U') AND INSTR(ENAME,'A'1,1)!=0;
+select * from emp where SUBSTR(JOB,1,1) IN ('A','E','I','O','U') AND SUBSTR(JOB,-1) IN ('A','E','I','O','U') AND INSTR(ENAME,'A'1,1)!=0
+                                                                                                                                *
+ERROR at line 1:
+ORA-00907: missing right parenthesis 
+
+
+SQL> SELECT LENGHT(TRANSLATE('JSPIDERS','JPIDER','')) FROM DUAL;
+SELECT LENGHT(TRANSLATE('JSPIDERS','JPIDER','')) FROM DUAL
+       *
+ERROR at line 1:
+ORA-00904: "LENGHT": invalid identifier 
+
+
+SQL> SELECT LENGTH(TRANSLATE('JSPIDERS','JPIDER','')) FROM DUAL;
+
+LENGTH(TRANSLATE('JSPIDERS','JPIDER',''))                                                                                                                                                               
+-----------------------------------------                                                                                                                                                               
+                                                                                                                                                                                                        
+
+SQL> SELECT LENGTH(TRANSLATE('JSPIDERS','JPIDER','_')) FROM DUAL;
+
+LENGTH(TRANSLATE('JSPIDERS','JPIDER','_'))                                                                                                                                                              
+------------------------------------------                                                                                                                                                              
+                                         3                                                                                                                                                              
+
+SQL> 
+SQL> SELECT LENGTH(TRANSLATE('JSPIDERS','JPIDER',' ')) FROM DUAL;
+
+LENGTH(TRANSLATE('JSPIDERS','JPIDER',''))                                                                                                                                                               
+-----------------------------------------                                                                                                                                                               
+                                        3                                                                                                                                                               
+
+SQL> SELECT LENGTH(TRANSLATE('JSPIDERS','JPIDER',' '))-1 FROM DUAL;
+
+LENGTH(TRANSLATE('JSPIDERS','JPIDER',''))-1                                                                                                                                                             
+-------------------------------------------                                                                                                                                                             
+                                          2                                                                                                                                                             
+
+SQL> select *
+  2  from emp
+  3  SUBSTR(JOB,1,1) IN ('A','E','I','O','U')
+  4  AND SUBSTR(JOB,-1) IN ('A','E','I','O','U')
+  5  INSTR(ENAME,'A'1,1)!=0;
+SUBSTR(JOB,1,1) IN ('A','E','I','O','U')
+      *
+ERROR at line 3:
+ORA-00933: SQL command not properly ended 
+
+
+SQL> select *
+  2  from emp
+  3  SUBSTR(JOB,1,1) IN ('A','E','I','O','U')
+  4  AND SUBSTR(JOB,-1) IN ('A','E','I','O','U')
+  5  AND INSTR(ENAME,'A'1,1)!=0;
+SUBSTR(JOB,1,1) IN ('A','E','I','O','U')
+      *
+ERROR at line 3:
+ORA-00933: SQL command not properly ended 
+
+
+SQL> select *
+  2  from emp
+  3  WHERE SUBSTR(JOB,1,1) IN ('A','E','I','O','U')
+  4  AND SUBSTR(JOB,-1) IN ('A','E','I','O','U')
+  5  AND INSTR(ENAME,'A'1,1)!=0;
+AND INSTR(ENAME,'A'1,1)!=0
+                   *
+ERROR at line 5:
+ORA-00907: missing right parenthesis 
+
+
+SQL> CSUBSTR(JOB,1,1) IN ('A','E','I','O','U')
+SP2-0734: unknown command beginning "CSUBSTR(JO..." - rest of line ignored.
+SQL> AND SUBSTR(JOB,-1) IN ('A','E','I','O','U')
+SP2-0734: unknown command beginning "AND SUBSTR..." - rest of line ignored.
+SQL> AND INSTR(ENAME,'A'1,1)!=0;
+SP2-0734: unknown command beginning "AND INSTR(..." - rest of line ignored.
+SQL> 
+SQL> select *
+  2  from emp
+  3  WHERE ( SUBSTR(JOB,1,1) IN ('A','E','I','O','U')
+  4  AND SUBSTR(JOB,-1) IN ('A','E','I','O','U')
+  5  AND INSTR(ENAME,'A'1,1)!=0);
+WHERE ( SUBSTR(JOB,1,1) IN ('A','E','I','O','U')
+                        *
+ERROR at line 3:
+ORA-00907: missing right parenthesis 
+
+
+SQL> SELECT * FROM EMP
+  2  WHERE INSTR('AEIOU',SUBSTR(JOB,1,1))!=0
+  3  AND INSTR('AEIOU',SUBSTR(JOB,-1,1))!=0
+  4  AND INSTR(ENAME,'A',1,1)!=0;
+
+no rows selected
+
+SQL> select * from emp
+  2  WHERE (SUBSTR(JOB,1,1) IN ('A','E','I','O','U'))
+  3  AND ( SUBSTR(JOB,-1) IN ('A','E','I','O','U'))
+  4  AND (INSTR(ENAME,'A'1,1)!=0);
+AND (INSTR(ENAME,'A'1,1)!=0)
+                    *
+ERROR at line 4:
+ORA-00907: missing right parenthesis 
+
+
+SQL> select * from emp
+  2  WHERE (SUBSTR(JOB,1,1) IN ('A','E','I','O','U'))
+  3  AND (SUBSTR(JOB,-1) IN ('A','E','I','O','U'))
+  4   AND (INSTR(ENAME,'A'1,1)!=0);
+ AND (INSTR(ENAME,'A'1,1)!=0)
+                     *
+ERROR at line 4:
+ORA-00907: missing right parenthesis 
+
+
+SQL> select * from emp
+  2  WHERE (SUBSTR(JOB,1,1) IN ('A','E','I','O','U'))
+  3  AND (SUBSTR(JOB,-1) IN ('A','E','I','O','U'))
+  4  AND (INSTR(ENAME,'A'1,1)!=0);
+AND (INSTR(ENAME,'A'1,1)!=0)
+                    *
+ERROR at line 4:
+ORA-00907: missing right parenthesis 
+
+
+SQL>  select * from emp
+  2   WHERE (SUBSTR(JOB,1,1) IN ('A','E','I','O','U'))
+  3   AND (SUBSTR(JOB,-1) IN ('A','E','I','O','U'))
+  4   AND (INSTR(ENAME,'A','1,1)!=0);
+ERROR:
+ORA-01756: quoted string not properly terminated 
+
+
+SQL> select * from emp
+  2  WHERE (SUBSTR(JOB,1,1) IN ('A','E','I','O','U'))
+  3  AND (SUBSTR(JOB,-1) IN ('A','E','I','O','U'))
+  4  AND (INSTR(ENAME,'A',1,1)!=0);
+
+no rows selected
+
+SQL> SPOOL OFF

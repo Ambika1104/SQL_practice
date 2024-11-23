@@ -1,0 +1,80 @@
+SQL> SELECT * FROM TAB;
+
+TNAME                          TABTYPE  CLUSTERID                               
+------------------------------ ------- ----------                               
+DEPT                           TABLE                                            
+EMP                            TABLE                                            
+BONUS                          TABLE                                            
+SALGRADE                       TABLE                                            
+AUTHOR                         TABLE                                            
+BOOK                           TABLE                                            
+
+6 rows selected.
+
+SQL> DESC AUTHOR;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ AID                                       NOT NULL NUMBER(5)
+ ANAME                                              VARCHAR2(20)
+ AGE                                       NOT NULL VARCHAR2(15)
+ N0_OF_BOOKS                                        NUMBER(2)
+
+SQL> DESC BOOK;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ BID                                       NOT NULL NUMBER(5)
+ BNAME                                     NOT NULL VARCHAR2(20)
+ PRICE                                              NUMBER(5)
+ PUB_DATE                                           DATE
+ NOOFPAGE                                           NUMBER(2)
+ AID                                                NUMBER(5)
+
+SQL> INSERT INTO AUTHOR VALUES(10,'A',33,10);
+
+1 row created.
+
+SQL> SELECT * FROM AUTHOR;
+
+       AID ANAME                AGE             N0_OF_BOOKS                     
+---------- -------------------- --------------- -----------                     
+        10 A                    33                       10                     
+
+SQL> TRUNCATE TABLE AUTHOR;
+
+Table truncated.
+
+SQL> SELECT * FROM AUTHOR;
+
+no rows selected
+
+SQL> SELECT * FROM TAB;
+
+TNAME                          TABTYPE  CLUSTERID                               
+------------------------------ ------- ----------                               
+DEPT                           TABLE                                            
+EMP                            TABLE                                            
+BONUS                          TABLE                                            
+SALGRADE                       TABLE                                            
+AUTHOR                         TABLE                                            
+BOOK                           TABLE                                            
+
+6 rows selected.
+
+SQL> RENAME AUTHOR TO PUBLISHER;
+
+Table renamed.
+
+SQL> SELECT * FROM TAB;
+
+TNAME                          TABTYPE  CLUSTERID                               
+------------------------------ ------- ----------                               
+DEPT                           TABLE                                            
+EMP                            TABLE                                            
+BONUS                          TABLE                                            
+SALGRADE                       TABLE                                            
+BOOK                           TABLE                                            
+PUBLISHER                      TABLE                                            
+
+6 rows selected.
+
+SQL> SPOOL OFF

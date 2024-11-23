@@ -1,0 +1,126 @@
+SQL> INSERT INTO PUBLISHER VALUES(10,'A',33,10);
+
+1 row created.
+
+SQL> INSERT INTO PUBLISHER VALUES(10,'A',330;
+INSERT INTO PUBLISHER VALUES(10,'A',330
+                                      *
+ERROR at line 1:
+ORA-00917: missing comma 
+
+
+SQL> INSERT INTO PUBLISHER VALUES(10,'A',33);
+INSERT INTO PUBLISHER VALUES(10,'A',33)
+            *
+ERROR at line 1:
+ORA-00947: not enough values 
+
+
+SQL> INSERT INTO PUBLISHER VALUES('A',33,10,10);
+INSERT INTO PUBLISHER VALUES('A',33,10,10)
+                             *
+ERROR at line 1:
+ORA-01722: invalid number 
+
+
+SQL> INSERT INTO PUBLISHER(AID,ANAME,AGE,NO_OF_BOOK)
+  2  VLAUES(20,'B',31,8);
+VLAUES(20,'B',31,8)
+*
+ERROR at line 2:
+ORA-00926: missing VALUES keyword 
+
+
+SQL>  INSERT INTO PUBLISHER(AID,ANAME,AGE,NO_OF_BOOK)
+  2  VALUES(20,'B',31,8);
+ INSERT INTO PUBLISHER(AID,ANAME,AGE,NO_OF_BOOK)
+                                     *
+ERROR at line 1:
+ORA-00904: "NO_OF_BOOK": invalid identifier 
+
+
+SQL> DESC PUBLISHER;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ AID                                       NOT NULL NUMBER(5)
+ ANAME                                              VARCHAR2(20)
+ AGE                                       NOT NULL VARCHAR2(15)
+ N0_OF_BOOKS                                        NUMBER(2)
+
+SQL> INSERT INTO PUBLISHER(AID,ANAME,AGE,NO_OF_BOOKS)
+  2   VALUES(20,'B',31,8);
+INSERT INTO PUBLISHER(AID,ANAME,AGE,NO_OF_BOOKS)
+                                    *
+ERROR at line 1:
+ORA-00904: "NO_OF_BOOKS": invalid identifier 
+
+
+SQL> ALTER TABLE PUBLISHER RENAME COLUMN N0_OF_BOOKS TO NO_OF_BOOK;
+
+Table altered.
+
+SQL> INSERT INTO PUBLISHER(AID,ANAME,AGE,NO_OF_BOOKS)
+  2  VALUES(20,'B',31,8);
+INSERT INTO PUBLISHER(AID,ANAME,AGE,NO_OF_BOOKS)
+                                    *
+ERROR at line 1:
+ORA-00904: "NO_OF_BOOKS": invalid identifier 
+
+
+SQL> INSERT INTO PUBLISHER(AID,ANAME,AGE,NO_OF_BOOK)
+  2  VALUES(20,'B',31,8);
+
+1 row created.
+
+SQL> INSERT INTO PUBLISHER(ANAME,AID,AGE,NO_OF_BOOK)
+  2  VALUES('C',30,34,36);
+
+1 row created.
+
+SQL>  INSERT INTO PUBLISHER(ANAME,AID,AGE)
+  2   VALUES('D',40,45);
+
+1 row created.
+
+SQL> SELECT * FROM PUBLISHER;
+
+       AID ANAME                AGE             NO_OF_BOOK                      
+---------- -------------------- --------------- ----------                      
+        10 A                    33                      10                      
+        20 B                    31                       8                      
+        30 C                    34                      36                      
+        40 D                    45                                              
+
+SQL> UPDATE PUBLISHER SET NO_OF_BOOK=11 WHERE AID=40;
+
+1 row updated.
+
+SQL> SELECT * FROM PUBLISHER;
+
+       AID ANAME                AGE             NO_OF_BOOK                      
+---------- -------------------- --------------- ----------                      
+        10 A                    33                      10                      
+        20 B                    31                       8                      
+        30 C                    34                      36                      
+        40 D                    45                      11                      
+
+SQL> DELETE FROM TABLE WHERE AID=40;
+DELETE FROM TABLE WHERE AID=40
+            *
+ERROR at line 1:
+ORA-00903: invalid table name 
+
+
+SQL> DELETE FROM PUBLISHER WHERE AID=40;
+
+1 row deleted.
+
+SQL> SELECT * FROM PUBLISHER;
+
+       AID ANAME                AGE             NO_OF_BOOK                      
+---------- -------------------- --------------- ----------                      
+        10 A                    33                      10                      
+        20 B                    31                       8                      
+        30 C                    34                      36                      
+
+SQL> SPOOL OFF

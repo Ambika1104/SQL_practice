@@ -1,0 +1,126 @@
+SQL> SELECT * FROM TAB;
+
+TNAME                          TABTYPE  CLUSTERID                               
+------------------------------ ------- ----------                               
+DEPT                           TABLE                                            
+EMP                            TABLE                                            
+BONUS                          TABLE                                            
+SALGRADE                       TABLE                                            
+AUTHOR                         TABLE                                            
+BOOK                           TABLE                                            
+
+6 rows selected.
+
+SQL> DESC AUTHOR;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ AID                                       NOT NULL NUMBER(5)
+ ANAME                                              VARCHAR2(20)
+ AGE                                       NOT NULL VARCHAR2(15)
+ N0_OF_BOOKS                                        NUMBER(2)
+
+SQL> DESC BOOK;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ BID                                       NOT NULL NUMBER(5)
+ BNAME                                     NOT NULL VARCHAR2(20)
+ PRICE                                              NUMBER(5)
+ PUB_DATE                                           DATE
+ NOOFPAGE                                           NUMBER(2)
+ AID                                                NUMBER(5)
+
+SQL> DROP TABLE AUTHOR;
+DROP TABLE AUTHOR
+           *
+ERROR at line 1:
+ORA-02449: unique/primary keys in table referenced by foreign keys 
+
+
+SQL> DROP TABLE BOOK;
+
+Table dropped.
+
+SQL> DROP TABLE AUTHOE;
+DROP TABLE AUTHOE
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL>  DROP TABLE AUTHOR;
+
+Table dropped.
+
+SQL> SHOE RECYCLEBIN;
+SP2-0734: unknown command beginning "SHOE RECYC..." - rest of line ignored.
+SQL> SHOW RECYCLEBIN;
+ORIGINAL NAME    RECYCLEBIN NAME                OBJECT TYPE  DROP TIME          
+---------------- ------------------------------ ------------ -------------------
+AUTHOR           BIN$RU3LxaSyRIiR6h9r7s7oxQ==$0 TABLE        2024-07-23:23:50:09
+BOOK             BIN$+ed0k3bHTyWEdzzjrjMdCg==$0 TABLE        2024-07-23:23:49:51
+SQL> FLASHBACK TABLE AUTHOR TO BEFORE DROP;
+
+Flashback complete.
+
+SQL> SHOW RECYCLEBIN;
+ORIGINAL NAME    RECYCLEBIN NAME                OBJECT TYPE  DROP TIME          
+---------------- ------------------------------ ------------ -------------------
+BOOK             BIN$+ed0k3bHTyWEdzzjrjMdCg==$0 TABLE        2024-07-23:23:49:51
+SQL> FLASHBACK TABLE BOOK TO BEFORE DROP;
+
+Flashback complete.
+
+SQL> SHOW RECYCLEBIN;
+SQL> CREATE TABLE SALER(
+  2  SID NUMBER(5) PRIMARY KEY);
+
+Table created.
+
+SQL> DROP TABLE SALER;
+
+Table dropped.
+
+SQL> SHOW RECYCLEBIN;
+ORIGINAL NAME    RECYCLEBIN NAME                OBJECT TYPE  DROP TIME          
+---------------- ------------------------------ ------------ -------------------
+SALER            BIN$6BX0vDyzSSe75GChDiLXOQ==$0 TABLE        2024-07-23:23:53:30
+SQL> PURGE TABLE SALER;
+
+Table purged.
+
+SQL> PURGE RECYCLE BIN;
+PURGE RECYCLE BIN
+      *
+ERROR at line 1:
+ORA-38302: invalid PURGE option 
+
+
+SQL> CREATE TABLE SALER(
+  2  SID NUMBER(4));
+
+Table created.
+
+SQL> CREATE TABLE AKLOVESJK(
+  2  AJ NUMBER(7));
+
+Table created.
+
+SQL> DROP TABLE SALER;
+
+Table dropped.
+
+SQL> DROP TABLE AKLOVESJK;
+
+Table dropped.
+
+SQL> SHOW RECYCLEBIN;
+ORIGINAL NAME    RECYCLEBIN NAME                OBJECT TYPE  DROP TIME          
+---------------- ------------------------------ ------------ -------------------
+AKLOVESJK        BIN$DS8XCYgeSteDFTpZ9ygW3Q==$0 TABLE        2024-07-23:23:55:29
+SALER            BIN$nEg7j+OXTBWqFzOD7dpTmw==$0 TABLE        2024-07-23:23:55:09
+SQL> PURGE RECYCLEBIN;
+
+Recyclebin purged.
+
+SQL> SHOW RECYCLEBIN;
+SQL> SPOOL OFF
